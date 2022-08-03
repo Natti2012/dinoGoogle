@@ -1,0 +1,123 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    height: 100vh;
+    background: #584040;
+    display: flex;
+    align-items: center;
+}
+.contenedor{
+    width: 920px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient( #B7D6C7, #FFE2D1);
+    overflow: hidden;
+}
+.dino{
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+    background: url(dino.png) repeat-x 0px 0px;
+    background-size: 336px 84px;
+    background-position-x: 0px;
+
+}
+.dino-corriendo{
+    animation: animarDino 0.25s steps(2) infinite;
+
+}
+.dino-estrellado{
+    background-position-x:-252px ;
+}
+.suelo{
+    width: 200%;
+    height: 42px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(suelo.png) repeat-x 0px 0px;
+}
+.score{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+
+    color: #D48872;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+
+}
+.cactus{
+    width: 46px;
+    height: 96px;
+
+    position: absolute;
+    bottom: 16px;
+    left:  600px;
+    z-index: 1;
+    background: url(cactus1.png) no-repeat;
+
+}
+.cactus2{
+    width: 98px;
+    height: 66px;
+
+    background: url(cactus2.png) no-repeat;
+}
+.game-over{
+    display: none;
+
+    position: absolute;
+    width: 100%;
+
+
+    text-align: center;
+    color: #7e928b;
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: 700;
+}
+.mediodia {
+    background: linear-gradient(  #edd7ca,#fbceeb);
+   
+}
+
+.tarde {
+    background: linear-gradient(  #ffdcf3,#ffadad);
+    
+}
+
+.noche {
+    background: linear-gradient(   #918bba, #ffadad )
+    
+}
+.nube{
+    width: 92px;
+    height: 26px;
+
+    position: absolute;
+    z-index: 0;
+
+    background: url(nube.png) no-repeat;
+    background-size: 92px 26px;
+}
+@keyframes animarDino {
+from{
+    background-position-x: -84px;
+}
+to{
+    background-position-x:-252px ;
+}
+}
