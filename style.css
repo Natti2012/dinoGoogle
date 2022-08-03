@@ -4,7 +4,7 @@
 }
 body{
     height: 100vh;
-    background: #584040;
+    background: #1e4e54;
     display: flex;
     align-items: center;
 }
@@ -76,6 +76,8 @@ body{
 
     background: url(cactus2.png) no-repeat;
 }
+
+
 .game-over{
     display: none;
 
@@ -120,4 +122,26 @@ from{
 to{
     background-position-x:-252px ;
 }
+}
+
+@media (max-width: 500px) {
+
+ 
+    element.style {
+        bottom: 22px;
+    }
+    .dino-estrellado {
+        background-position-x: -252px;
+    }
+    .dino {
+        width: 74px;
+        height: 64px;
+        position: absolute;
+        bottom: 22px;
+        left: 42 px;
+        z-index: 2;
+        background: url(dino.png) repeat-x 0px 0px;
+        background-size: 318px 64px;
+        background-position-x: 0px;}
+
 }

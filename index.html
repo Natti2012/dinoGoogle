@@ -80,6 +80,7 @@ to{
     </style> -->
 </head>
 <body>
+   
     <div class="contenedor">
         <div class="suelo"></div>
         <div class="dino dino-corriendo"></div>
@@ -176,7 +177,7 @@ function UpDate(){
 
     MoverObstaculos()
     MoverNubes();
-    DetectarColision()
+       DetectarColision()
     velY -= gravedad * deltaTime; 
 
 }
@@ -301,12 +302,19 @@ function IsCollision(a, b , paddingTop, paddingRight, paddingBottom, paddingLeft
 function GameOver(){
     Estrellarse();
     gameOver.style.display = "block"
+    setTimeout(refrescar, 4000)
 
 }
 function Estrellarse(){
     dino.classList.remove("dino-corriendo");
     dino.classList.add("dino-estrellado");
     parado = true;
+   
+    
+   
+}
+function refrescar(){
+    location.reload();
 }
 
     </script>
