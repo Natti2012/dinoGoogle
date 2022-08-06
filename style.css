@@ -42,7 +42,22 @@ body{
     position: absolute;
     bottom: 0;
     left: 0;
-    background: url(suelo.png) repeat-x 0px 0px;
+    background: url(suelo.png) repeat-x 0px 0px ;
+}
+.bestScores{
+  width: 300px;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    right: 55px;
+    z-index: 10; 
+    
+    color: #D48872;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+
 }
 .score{
     width: 100px;
@@ -125,7 +140,7 @@ to{
 }
 
 @media (max-width: 500px) {
-
+  
  
     element.style {
         bottom: 22px;
@@ -145,3 +160,65 @@ to{
         background-position-x: 0px;}
 
 }
+.play{
+     
+    position: absolute;
+    bottom: 20%;
+    right: 50%;
+    z-index: 10; 
+    
+    /* color: #D48872;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right; */
+}
+
+.rainbow-button {
+    width:calc(10vw + 6px);
+    height:calc(80px);
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    border-radius:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-transform:uppercase;
+    font-size:3vw;
+    font-weight:bold;
+    text-decoration: none;
+  }
+  .rainbow-button:after {
+    /* content:attr(alt);
+    width:20vw;
+    height:8vw; */
+    background-color:#191919;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .rainbow-button:hover {
+    animation:slidebg 2s linear infinite;
+  }
+  
+  @keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
+  }
+
+  .player{
+      width: 20%;
+    height: 10%;
+    position: absolute;
+    top: 15%;
+    left:  55px;
+    z-index: 10; 
+    
+    color: #D48872;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+
+  }
+  .player

@@ -7,14 +7,29 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css"/>
     <script type="text/javascript" src="/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
-   
+    <div class="play ">
+        <button class="rainbow-button" onclick="play()" id="play">PLAY</button>
+        
+    </div>
+    
+    <div class="player"> 
+       <label > Usuario: <input placeholder="Ingrese usuario" type="text" id="usuario"></label>
+       <button id="usuarioenviar" onclick="postPlayer()">Agregar</button>
+    </div>
+    <div class="bestScores">
+    
+        <h3> Best scores</h3>
+
+       </div> 
     <div class="contenedor">
         <div class="suelo"></div>
         <div class="dino dino-corriendo"></div>
         <div class="score">0</div>
+      
     </div>
     <div class="game-over">GAME OVER</div>
    <audio src="sound.mp3" class="sound"></audio>

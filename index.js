@@ -4,11 +4,21 @@
 
 var time = new Date();
 var deltaTime = 0;
+function play(){
+    document.getElementById("#play")
 if(document.readyState === "complete" || document.readyState === "interactive"){
     setTimeout(Init, 1);
 }else{
     document.addEventListener("DOMContentLoaded", Init);
 }
+document.querySelector(".play").style.display = "none"
+}
+function refrescar (){
+   
+       location.reload();
+    
+}
+
  function Init(){
      time = new Date();
      Start();
@@ -60,20 +70,28 @@ var suelo;
 var gameOver; 
 var sonido;
 var sonidoGameOver;
+var bestScores;
+var mejoresPuntajes= []
+
+
 function Start (){
     gameOver = document.querySelector(".game-over");
     suelo= document.querySelector(".suelo");
     contenedor = document.querySelector(".contenedor");
     textoScore = document.querySelector(".score");
+    bestScores= document.querySelector(".bestScores");
     dino = document.querySelector(".dino");
     document.addEventListener("keydown", HandleKeydown);
    document.addEventListener('touchstart',Saltar);
   sonido= document.querySelector(".sound");
 sonidoGameOver= document.querySelector(".soundGameOver");
+getScores("Natti")
+
+
 }
 
 function HandleKeydown(ev){
-    if(ev.keyCode == 32){
+    if(ev.keyCode == 32 ||ev.keyCode == 38 ){
         Saltar()
     }
 }
@@ -86,6 +104,7 @@ function Saltar(){
     }
 }
 function UpDate(){
+
      if(parado) return;
     MoverSuelo();
     MoverDinosaurio();
@@ -100,8 +119,8 @@ function UpDate(){
 }
  function MoverSuelo(){
      sueloX += CalcularDesplazamiento();
-     suelo.style.left = -(sueloX % contenedor.clientWidth) + "px"
-     sonido.play()
+      suelo.style.left = -(sueloX % contenedor.clientWidth ) + "px"
+      sonido.play()
  }
 function CalcularDesplazamiento(){
     return velEscenario * deltaTime * gameVel ;
@@ -184,6 +203,7 @@ function MoverNubes() {
 function GanarPuntos() {
     score++;
     textoScore.innerText = score;
+    
     if(score == 5){
         gameVel = 1.3;
         contenedor.classList.add("mediodia");
@@ -221,8 +241,9 @@ function IsCollision(a, b , paddingTop, paddingRight, paddingBottom, paddingLeft
 function GameOver(){
     Estrellarse();
     gameOver.style.display = "block"
-    sonido.pause()
-   sonidoGameOver.play()
+         sonido.pause()
+  sonidoGameOver.play()
+  
     setTimeout(refrescar, 4000)
 
 
@@ -236,6 +257,75 @@ function Estrellarse(){
     
    
 }
-function refrescar(){
-    location.reload();
+
+function getScores(player){
+    //
+    // 
+    // 
+    // ;
+    // mejoresPuntajes.push(textoScore)
+$.get(`http://localhost:3001/puntaje/${player}`, function(data){
+    console.log(data) 
+    data?.map((e)=>{
+         var scores = document.createElement("h3") 
+         scores.innerText = e.score
+         scores.classList.add("listScores")
+         bestScores.appendChild(scores);
+    }
+   
+
+    )
+    
+
+
+})
 }
+let player = document.querySelector("#usuario")
+async function postPlayer (){
+$("#usuarioenviar").click(function(){
+    player = document.querySelector("#usuario").value 
+    
+    // $.get(`http://localhost:3001/player/${player}`,function(data){
+    //      console.log("player", data)
+      
+    //    if(data.player){
+    //       
+    //    }else{
+    //        $.post(`http://localhost:3001/player/${player}`,null,function(){
+    //     
+    //    })
+      
+    //    }
+    //     })
+//   fetch(`http://localhost:3001/player/${player}`)
+//     .then(response => response.json())
+//     .then( function (data) {
+//         if(data){
+//              alert("ese usuario ya existe")
+// console.log(data)
+//         }else{
+            
+//         }
+       
+//     })
+    
+       
+       
+// })
+
+$.post(`http://localhost:3001/player/${player}`,null,function(){
+    //     
+    //    })
+    })
+    // .then(function(response){ 
+    // return response.json()})
+    // .then(function(data)
+    // {console.log(data) }  )
+      alert("se creo")
+      localStorage.setItem("player", JSON.stringify(player));
+ })
+}
+ 
+// 
+  
+//let productCart = JSON.parse(window.localStorage.getItem("product"));
