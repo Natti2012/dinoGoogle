@@ -2,6 +2,8 @@
 var time = new Date();
 var deltaTime = 0;
 function play() {
+info= document.querySelector(".info")
+info.classList.add("celular")
     document.getElementById("#play")
     if (document.readyState === "complete" || document.readyState === "interactive") {
         setTimeout(Init, 1);
@@ -77,8 +79,7 @@ currentUser()
 let info 
 
 function Start() {
-info= document.querySelector(".info")
-info.classList.add("celular")
+
     gameOver = document.querySelector(".game-over");
     suelo = document.querySelector(".suelo");
     contenedor = document.querySelector(".contenedor");
