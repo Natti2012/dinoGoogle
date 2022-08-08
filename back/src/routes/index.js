@@ -1,13 +1,12 @@
 const { Router } = require('express');
-const { Player, Puntaje, puntajePlayer } = require('../db');
-const axios = require('axios');
+const { Player, Puntaje,  } = require('../db');
 
 const router = Router();
 
 
 router.post('/player/:player', async (req, res, next) => {
     const { player } = req.params
-    console.log("player",player)
+    console.log("player", player)
     try {
         let crearPlayer = await Player.create({
             player
@@ -20,11 +19,12 @@ router.post('/player/:player', async (req, res, next) => {
 })
 router.get('/player/:player', async (req, res, next) => {
     const { player } = req.params
-    console.log("player",player)
+    console.log("player", player)
     try {
         let crearPlayer = await Player.findOne({
-            where:{
-                player:player}
+            where: {
+                player: player
+            }
         })
         res.json(crearPlayer)
     } catch (error) {
@@ -36,53 +36,48 @@ router.post('/puntaje', async (req, res, next) => {
     const { player, score } = req.body
 
     try {
-
-
-        let Scores = await Puntaje.findOrCreate({ score, player})
+        let Scores = await Puntaje.create({ score, player })
         console.log('se agrego el puntaje');
-        console.log("puntajessss",Scores.datavalue)
+        console.log("puntajessss", Scores.datavalue)
         res.json(' puntaje agregado')
-        //     let currentPlayer = await Player.findOne({
-        //         where:{
-        //             player: player
-        //         }
-        //     })
-        //     if(currentPlayer){
-
-        // currentPlayer.addPuntaje(scores)
-
-        //     }else{
-
-        //         crearPlayer.addPuntaje(Scores)
-        //         res.json('se creo usuario y puntaje agregado')
-        //     }
-
-
     } catch (error) {
         next(error)
     }
 })
 router.get('/puntaje/:player', async (req, res, next) => {
     const { player } = req.params
-try {
-       const puntajes = await Puntaje.findAll({
-        where: {
-           player:player
-        },
-        //  include:{
-        //   model: Puntaje,
-        //   atribute:[" score"]
-        //  }
-    })
-    // let  puntajesId = puntajes.map((p) => p.scoreId )
+    try {
+        const puntajes = await Puntaje.findAll({
+            where: {
+                player: player
+            },
+        })
 
-    puntajes?.map((p) => p.dataValues.score)
-    console.log(puntajes)
-    res.json(puntajes)
-} catch (error) {
-     next(error)
-}
- 
+
+        puntajes?.map((p) => p.dataValues.score)
+        console.log(puntajes)
+        res.json(puntajes)
+    } catch (error) {
+        next(error)
+    }
+
 })
 
+router.get('/bestpuntaje', async (req, res, next) => {
+    try {
+        const bestPuntajes = await Puntaje.findAll()
+        mejoresPuntajes = bestPuntajes?.map((p) => {
+            return (
+                [p.dataValues.score, p.dataValues.player]
+            )
+        }
+        )
+        var top5 = mejoresPuntajes.sort(function (a, b) { return b[0] - a[0]; }).slice(0, 5);
+        console.log(top5, "top5")
+        res.json(top5)
+    } catch (error) {
+        next(error)
+    }
+
+})
 module.exports = router

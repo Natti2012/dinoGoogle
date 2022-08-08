@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script type="text/javascript" src="/index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <title>DinoGame</title>
+    <link rel="stylesheet" href="style.css" />
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
 </head>
+
 <body>
     <div class="play ">
         <button class="rainbow-button" onclick="play()" id="play">PLAY</button>
-        
+
     </div>
-    
-    <div class="player"> 
-       <label > Usuario: <input placeholder="Ingrese usuario" type="text" id="usuario"></label>
-       <button id="usuarioenviar" onclick="postPlayer()">Agregar</button>
+
+    <div class="player">
+        <label> Jugador: <input placeholder="Ingrese nombre" type="text" id="usuario">
+        <button id="usuarioenviar" class="usuarioenviar" onclick="postPlayer()">Agregar</button></label>
     </div>
     <div class="bestScores">
-    
+
         <h3> Best scores</h3>
 
-       </div> 
-    <div class="contenedor">
+    </div>
+    <div class="currentUser">
+
+    </div>
+    <div class="contenedor celular">
         <div class="suelo"></div>
         <div class="dino dino-corriendo"></div>
         <div class="score">0</div>
-      
+
     </div>
     <div class="game-over">GAME OVER</div>
-   <audio src="sound.mp3" class="sound"></audio>
+    <audio src="sound.mp3" class="sound"></audio>
     <audio src="gameOver.mp3" class="soundGameOver"></audio>
+   
+    <script async type="text/javascript" src="/index.js"></script>
+ 
+
 </body>
+
 </html>

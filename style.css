@@ -54,7 +54,7 @@ body{
     
     color: #D48872;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     text-align: right;
 
@@ -140,12 +140,22 @@ to{
 }
 
 @media (max-width: 500px) {
+    .player{
+        width: 30%;
+      height: 10%;
+      position: absolute;
+      top: 15%;
+      left:  55px;
+      z-index: 10; 
+      
+      color: #e83706;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: right;
   
- 
-    element.style {
-        bottom: 22px;
     }
-    .dino-estrellado {
+.dino-estrellado {
         background-position-x: -252px;
     }
     .dino {
@@ -160,6 +170,9 @@ to{
         background-position-x: 0px;}
 
 }
+
+
+/* ------------------ */
 .play{
      
     position: absolute;
@@ -167,11 +180,7 @@ to{
     right: 50%;
     z-index: 10; 
     
-    /* color: #D48872;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: right; */
+   
 }
 
 .rainbow-button {
@@ -207,7 +216,7 @@ to{
   }
 
   .player{
-      width: 20%;
+      width: 30%;
     height: 10%;
     position: absolute;
     top: 15%;
@@ -221,4 +230,44 @@ to{
     text-align: right;
 
   }
-  .player
+  .currentUser{
+        
+    height: 10%;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    z-index: 10;  
+
+color: #f7e96a;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    
+  }
+  .usuarioenviar{
+
+    
+        font-size:15px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        width:140px;
+        height:50px;
+        border-width:1px;
+        color:#fff;
+        border-color:#c584f3;
+        font-weight:bold;
+        border-top-left-radius:6px;
+        border-top-right-radius:6px;
+        border-bottom-left-radius:6px;
+        border-bottom-right-radius:6px;
+        box-shadow:inset 0px 1px 0px 0px #efdcfb;
+        text-shadow:inset 0px 1px 0px #9752cc;
+        background:linear-gradient(#dfbdfa, #bc80ea);
+      }
+      
+      .usuarioenviar:hover {
+        background: linear-gradient(#bc80ea, #dfbdfa);
+      }
+/* .celular{
+    display:none;
+} */
