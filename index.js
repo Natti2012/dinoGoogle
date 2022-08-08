@@ -74,9 +74,11 @@ let playerCurrent = JSON.parse(window.localStorage.getItem("player"));
 let scoreCurrent = JSON.parse(window.localStorage.getItem("score"));
 currentUser()
  getScores()
-
+let info 
 
 function Start() {
+info= document.querySelector(".info")
+info.classList.add("celular")
     gameOver = document.querySelector(".game-over");
     suelo = document.querySelector(".suelo");
     contenedor = document.querySelector(".contenedor");
