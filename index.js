@@ -258,7 +258,7 @@ function Estrellarse() {
 
 function getScores(){
     bestScores = document.querySelector(".bestScores");
-    $.get(`http://localhost:3001/bestpuntaje`, function (data) {
+    $.get(`https://juego-dino.herokuapp.com/bestpuntaje`, function (data) {
         data.map((e) => {
             var scores = document.createElement("h3")
             scores.innerText = e[1] + " " + e[0]
@@ -283,7 +283,7 @@ let player
 
 function postPlayer() {
     player = document.querySelector("#usuario").value
-    $.post(`http://localhost:3001/player/${player}`, null, function () {
+    $.post(`https://juego-dino.herokuapp.com/player/${player}`, null, function () {
     })
     localStorage.setItem("player", JSON.stringify(player));
     location.reload()
@@ -291,7 +291,7 @@ function postPlayer() {
 
 
 function postScore(player, score) {
-    $.post(`http://localhost:3001/puntaje`, { player, score }, function () {
+    $.post(`https://juego-dino.herokuapp.com/puntaje`, { player, score }, function () {
      
     })
 
